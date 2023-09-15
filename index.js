@@ -17,7 +17,6 @@ const questions = [
     },
 
 
-
     {
         type: 'input',
         message: 'Describe your project',
@@ -40,7 +39,6 @@ const questions = [
     },
 
 
-
     {
         type: 'input',
         message: 'Who contributed in this project?',
@@ -51,7 +49,7 @@ const questions = [
         type: 'input',
         message: 'Test instructions',
         name: 'tests',
-    }
+    },
 
     {
         type: 'input',
@@ -68,43 +66,61 @@ const questions = [
 ];
 
 
-
-const responseHandler = (response) => (
-    response.confirm === response.password
-        ? console.log('Success!')
-        : console.log('')
-);
-
-
-
-
-
-const writeToFile = (answers) => {
-    console.log(answers)
-    fs.writeFile('log.txt', process.argv[2], (err) =>
-        err ? console.error(err) : console.log('Success!')
-    );
-}
-init(questions1, writeToFile);
+// const writeToFile = (answers) => {
+   
+//     console.log(answers)
+//     fs.writeFile('log.txt', process.argv[2], (err) =>
+//         err ? console.error(err) : console.log('Success!')
+//     );
+// }
 
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+
+// const README = 
+// function writeToFile(README, data) { }
 
 
 
 // TODO: Create a function to initialize app
-function init() { }
+// function init() { }
+
+const init = () => {
+    inquirer.prompt(questions)
+        .then((response) => console.log(response));
+}
 
 
 
 // Function call to initialize app
-init();
+// const writeToFile = (answers) => {
+//     console.log(answers)
+//     fs.writeFile('log.txt', process.argv[2], (err) =>
+//   err ? console.error(err) : console.log('Success!')
+// );
+// } 
+    
+// init(questions, writeToFile);
 
 
-const init = (questionsArray, handlerFunction) => {
-    inquirer
-        .prompt(questionsArray)
-        .then(handlerFunction)
-}
+
+
+// fs.writeFile('log.txt', process.argv[2], (err) =>
+//   err ? console.error(err) : console.log('Success!')
+// );
+
+
+// const responseHandler = (response) => (
+//     response.confirm === response.password
+//       ? console.log('Success!')
+//       : console.log('')
+//   );
+  
+ 
+  
+
+
+
+//   fs.appendFile('log.txt', `${process.argv[2]}\n`, (err) =>
+//   )
