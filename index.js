@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
 
 //// TODO: Create an array of questions for user input
 
@@ -67,7 +68,7 @@ const questions = [
 
 
 const writeToFile = (filename, data) => {
-    fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) => {
+    fs.writeFile(filename, data, (err) => {
         if(err) {
             return console.error(err);
         }
@@ -83,7 +84,7 @@ const writeToFile = (filename, data) => {
 const init = () => {
     inquirer.prompt(questions)
         .then((response) => {
-            writeToFile('output.json', response);
+            writeToFile('README.md', generateMarkdown(response));
         })
         .catch((error) => {
             console.error(error);
